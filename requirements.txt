@@ -2,7 +2,6 @@
 pandas==2.1.0
 numpy==1.24.3
 scikit-learn==1.3.0
-scikit-surprise==1.1.3
 
 # NLP / Content-based
 nltk==3.8.1

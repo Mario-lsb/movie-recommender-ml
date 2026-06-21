@@ -53,15 +53,15 @@ class ContentBasedRecommender:
         Returns:
             DataFrame of top-N recommended movies with similarity scores
         """
-        if title not in self.indices:
+        if title not in self.indices: # type: ignore
             raise ValueError(f"Movie '{title}' not found in dataset.")
 
-        idx = self.indices[title]
-        sim_scores = list(enumerate(self.cosine_sim[idx]))
+        idx = self.indices[title] # type: ignore
+        sim_scores = list(enumerate(self.cosine_sim[idx])) # type: ignore
         sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
         sim_scores = sim_scores[1: n + 1]  # exclude the movie itself
 
         movie_indices = [i[0] for i in sim_scores]
-        result = self.movies_df.iloc[movie_indices][["title", "release_date"]].copy()
+        result = self.movies_df.iloc[movie_indices][["title", "release_date"]].copy() # type: ignore
         result["similarity_score"] = [round(i[1], 4) for i in sim_scores]
         return result.reset_index(drop=True)

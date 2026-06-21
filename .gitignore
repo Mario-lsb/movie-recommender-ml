@@ -31,7 +31,10 @@ models/*.joblib
 .vscode/
 .idea/
 *.swp
-
+__pycache__/
+.pytest_cache/
+*.pyc
+.vscode/
 # OS
 .DS_Store
 Thumbs.db
@@ -41,3 +44,5 @@ Thumbs.db
 
 # Logs
 *.log
+
+PRD.md
